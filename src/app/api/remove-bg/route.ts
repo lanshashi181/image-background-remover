@@ -24,8 +24,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Prepare form data for Remove.bg API
+    // Note: Remove.bg expects "image_file" as the field name
     const removeBgFormData = new FormData();
-    removeBgFormData.append("image", image);
+    removeBgFormData.append("image_file", image, image.name);
     removeBgFormData.append("size", "auto");
 
     // Call Remove.bg API
